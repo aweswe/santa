@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -10,9 +11,9 @@ export const Footer = () => {
           {/* Left Column - Quote & CTA */}
           <div>
             <div className="flex items-center gap-2 mb-8">
-              <span className="text-2xl font-display font-bold tracking-tight">
+              <Link to="/" className="text-2xl font-display font-bold tracking-tight">
                 SANTA<span className="text-accent">INDIA</span>
-              </span>
+              </Link>
             </div>
 
             {/* Testimonial */}
@@ -35,16 +36,20 @@ export const Footer = () => {
             </blockquote>
 
             <div className="flex flex-wrap gap-4">
-              <Button variant="accent" size="lg">
-                Book a Call
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-              >
-                Contact Us
-              </Button>
+              <Link to="/contact">
+                <Button variant="accent" size="lg">
+                  Book a Call
+                </Button>
+              </Link>
+              <Link to="/contact">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+                >
+                  Contact Us
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -86,12 +91,32 @@ export const Footer = () => {
                 <p className="text-sm text-primary-foreground/60 mb-4">
                   © 2026 Santa India
                 </p>
-                <a
-                  href="#"
-                  className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
-                >
-                  Privacy Policy
-                </a>
+                <div className="flex flex-wrap gap-x-4 gap-y-2">
+                  <Link
+                    to="/about"
+                    className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                  >
+                    About Us
+                  </Link>
+                  <Link
+                    to="/services"
+                    className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                  >
+                    Services
+                  </Link>
+                  <Link
+                    to="/insights"
+                    className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                  >
+                    Insights
+                  </Link>
+                  <Link
+                    to="/"
+                    className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
+                </div>
               </div>
 
               {/* Social Links */}
