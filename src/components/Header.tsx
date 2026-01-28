@@ -160,8 +160,8 @@ export const Header = ({ onContactClick }: HeaderProps) => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-[72px] bg-background border-t border-border animate-fade-in z-50 flex flex-col">
-            <div className="flex-1 overflow-y-auto container mx-auto px-6 py-4 space-y-1 pb-20">
+          <div className="lg:hidden fixed inset-0 top-[72px] bg-[hsl(var(--background))] border-t border-border z-[100] flex flex-col animate-fade-in">
+            <div className="flex-1 overflow-y-auto container mx-auto px-6 py-4 space-y-1 pb-20 bg-[hsl(var(--background))]">
               {navItems.map((item) => (
                 <div key={item.label} className="border-b border-border/50 last:border-0">
                   {item.hasDropdown ? (
