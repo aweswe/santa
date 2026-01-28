@@ -7,7 +7,7 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ onGetQuoteClick }: HeroSectionProps) => {
   return (
-    <section className="relative min-h-[80vh] bg-hero-gradient pt-16 lg:pt-32 overflow-hidden">
+    <section className="relative min-h-[80vh] bg-hero-gradient overflow-hidden">
       {/* Geometric Pattern */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-30 pointer-events-none">
         <img
@@ -19,7 +19,7 @@ export const HeroSection = ({ onGetQuoteClick }: HeroSectionProps) => {
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-3xl py-12 lg:py-32">
+        <div className="max-w-3xl py-8 lg:py-20">
           {/* Main Headline */}
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 animate-fade-in-up">
             Experiences.
