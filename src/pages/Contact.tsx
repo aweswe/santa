@@ -9,7 +9,7 @@ const Contact = () => {
     return (
         <div className="min-h-screen bg-background">
             <Header />
-            <main className="pt-24">
+            <main className="lg:pt-24">
                 {/* Hero Section */}
                 <section className="relative py-24 px-6 overflow-hidden">
                     {/* Background Elements */}

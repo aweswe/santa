@@ -7,7 +7,7 @@ const About = () => {
     return (
         <div className="min-h-screen bg-background">
             <Header />
-            <main className="pt-24">
+            <main className="lg:pt-24">
                 <AboutSection />
 
                 {/* Values Section */}

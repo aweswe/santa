@@ -6,7 +6,7 @@ const Insights = () => {
     return (
         <div className="min-h-screen bg-background">
             <Header />
-            <main className="pt-24">
+            <main className="lg:pt-24">
                 <section className="py-20 px-6">
                     <div className="container mx-auto">
                         <h1 className="font-display text-4xl md:text-5xl mb-12">Latest <span className="text-gradient">Insights</span></h1>

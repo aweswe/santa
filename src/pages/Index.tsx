@@ -19,8 +19,8 @@ import { ROICalculator } from "@/components/conversion/ROICalculator";
 const Index = () => {
   const [isQuoteFormOpen, setIsQuoteFormOpen] = useState(false);
 
+  // Allow ROI calculator to open quote form
   useEffect(() => {
-    // Listen for custom event from ROI Calculator
     const handleOpenQuoteForm = () => setIsQuoteFormOpen(true);
     window.addEventListener("openQuoteForm", handleOpenQuoteForm);
     return () => window.removeEventListener("openQuoteForm", handleOpenQuoteForm);
@@ -28,8 +28,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+
+      {/* Header */}
       <Header onContactClick={() => setIsQuoteFormOpen(true)} />
-      <main className="pb-20 lg:pb-0">
+
+      {/* Main Content */}
+      <main className="lg:pt-24 pb-20 lg:pb-0">
         <HeroSection onGetQuoteClick={() => setIsQuoteFormOpen(true)} />
         <TrustBadges />
         <PartnersMarquee />
@@ -41,13 +45,19 @@ const Index = () => {
         <SocialProofCounter />
         <TeamSection />
       </main>
+
+      {/* Footer */}
       <Footer />
-      
+
       {/* Conversion Components */}
       <ExitIntentPopup />
       <StickyCTA onGetQuoteClick={() => setIsQuoteFormOpen(true)} />
       <WhatsAppButton />
-      <QuoteForm isOpen={isQuoteFormOpen} onOpenChange={setIsQuoteFormOpen} />
+      <QuoteForm
+        isOpen={isQuoteFormOpen}
+        onOpenChange={setIsQuoteFormOpen}
+      />
+
     </div>
   );
 };

@@ -6,7 +6,7 @@ const EventManagement = () => {
     return (
         <div className="min-h-screen bg-background">
             <Header />
-            <main className="pt-24">
+            <main className="lg:pt-24">
                 {/* Page Hero */}
                 <section className="bg-primary/5 py-20 px-6">
                     <div className="container mx-auto text-center max-w-4xl">
