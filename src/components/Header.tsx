@@ -86,7 +86,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
               <img
                 src={logo}
                 alt="Santa India"
-                className="h-16 w-auto object-contain mix-blend-multiply scale-125 pt-1"
+                className="h-12 w-auto object-contain mix-blend-multiply"
               />
             </Link>
 
