@@ -16,7 +16,7 @@ const navItems = [
       { label: "Staffing Solutions", path: "/services/staffing-solutions" }
     ]
   },
-  { label: "Case Studies", path: "/case-studies" },
+  { label: "Portfolio", path: "/portfolio" },
   {
     label: "Partner Program",
     path: "/partner-program",

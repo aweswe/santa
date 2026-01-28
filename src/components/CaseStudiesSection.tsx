@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import exhibitionImg from "@/assets/exhibition.jpg";
 import eventHeroImg from "@/assets/event-hero.jpg";
@@ -49,9 +50,11 @@ export const CaseStudiesSection = () => {
               From high-stakes summits to massive expos, we deliver results that matter.
             </p>
           </div>
-          <Button variant="hero" size="pill">
-            View All Projects
-          </Button>
+          <Link to="/portfolio">
+            <Button variant="hero" size="pill">
+              View All Projects
+            </Button>
+          </Link>
         </div>
 
         {/* Case Studies Grid */}

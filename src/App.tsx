@@ -3,29 +3,30 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Services from "./pages/Services";
-import EventManagement from "./pages/services/EventManagement";
-import Exhibitions from "./pages/services/Exhibitions";
-import DigitalMarketing from "./pages/services/DigitalMarketing";
-import StaffingSolutions from "./pages/services/StaffingSolutions";
+import Index from "@/pages/Index";
+import Services from "@/pages/Services";
+import EventManagement from "@/pages/services/EventManagement";
+import Exhibitions from "@/pages/services/Exhibitions";
+import DigitalMarketing from "@/pages/services/DigitalMarketing";
+import StaffingSolutions from "@/pages/services/StaffingSolutions";
 
-import CaseStudies from "./pages/CaseStudies";
+import CaseStudies from "@/pages/CaseStudies";
 
-import PartnerProgram from "./pages/PartnerProgram";
-import AgencyPartners from "./pages/partner/AgencyPartners";
-import VendorNetwork from "./pages/partner/VendorNetwork";
+import PartnerProgram from "@/pages/PartnerProgram";
+import AgencyPartners from "@/pages/partner/AgencyPartners";
+import VendorNetwork from "@/pages/partner/VendorNetwork";
 
-import Insights from "./pages/Insights";
+import Insights from "@/pages/Insights";
 
-import About from "./pages/About";
-import OurStory from "./pages/about/OurStory";
-import TeamPage from "./pages/about/TeamPage";
-import Careers from "./pages/about/Careers";
+import About from "@/pages/About";
+import OurStory from "@/pages/about/OurStory";
+import TeamPage from "@/pages/about/TeamPage";
+import Careers from "@/pages/about/Careers";
 
-import Contact from "./pages/Contact";
-
-import NotFound from "./pages/NotFound";
+import Contact from "@/pages/Contact";
+import Portfolio from "@/pages/Portfolio";
+import NotFound from "@/pages/NotFound";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
@@ -44,6 +46,7 @@ const App = () => (
           <Route path="/services/staffing-solutions" element={<StaffingSolutions />} />
 
           <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/portfolio" element={<Portfolio />} />
 
           <Route path="/partner-program" element={<PartnerProgram />} />
           <Route path="/partner/agency" element={<AgencyPartners />} />

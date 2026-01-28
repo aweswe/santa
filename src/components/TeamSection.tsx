@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import teamImg from "@/assets/team.jpg";
 
@@ -11,9 +12,11 @@ export const TeamSection = () => {
             Cultivating a company where{" "}
             <span className="text-gradient">people</span> bloom
           </h2>
-          <Button variant="hero" size="lg">
-            Meet Our Team
-          </Button>
+          <Link to="/about/team">
+            <Button variant="hero" size="lg">
+              Meet Our Team
+            </Button>
+          </Link>
         </div>
 
         {/* Content Grid */}

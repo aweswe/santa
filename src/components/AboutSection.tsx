@@ -1,8 +1,12 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Play } from "lucide-react";
+import { Play, X } from "lucide-react";
 import eventHero from "@/assets/event-hero.jpg";
 
 export const AboutSection = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
     <section className="relative overflow-hidden">
       {/* Background Image */}
@@ -41,6 +45,7 @@ export const AboutSection = () => {
           <Button
             variant="outline"
             className="bg-background/90 text-foreground border-0 hover:bg-background gap-2 rounded-full px-6"
+            onClick={() => setIsVideoOpen(true)}
           >
             <Play className="w-4 h-4 fill-current" />
             Play Video
@@ -64,11 +69,34 @@ export const AboutSection = () => {
               </p>
             </div>
           </div>
-          <Button variant="accent" size="pill">
-            Book a Call
-          </Button>
+          <Link to="/contact">
+            <Button variant="accent" size="pill">
+              Book a Call
+            </Button>
+          </Link>
         </div>
       </div>
+
+      {/* Video Modal */}
+      {isVideoOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-300">
+          <div className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
+            <button
+              className="absolute top-4 right-4 z-10 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+              onClick={() => setIsVideoOpen(false)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/dP15zlyra3c?autoplay=1"
+              title="Santa India Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

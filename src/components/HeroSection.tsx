@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroGeometric from "@/assets/hero-geometric.png";
 
@@ -40,9 +41,11 @@ export const HeroSection = ({ onGetQuoteClick }: HeroSectionProps) => {
             <Button variant="hero" size="lg" onClick={onGetQuoteClick}>
               Get Free Quote
             </Button>
-            <Button variant="heroOutline" size="lg">
-              View Our Work
-            </Button>
+            <Link to="/portfolio">
+              <Button variant="heroOutline" size="lg">
+                View Our Work
+              </Button>
+            </Link>
           </div>
 
           {/* Trust Indicators */}
