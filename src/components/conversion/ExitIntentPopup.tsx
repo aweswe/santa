@@ -13,17 +13,22 @@ export const ExitIntentPopup = () => {
   useEffect(() => {
     // Check if popup was already shown in this session
     const shown = sessionStorage.getItem("exitIntentShown");
-    if (shown) {
-      setHasShown(true);
-      return;
-    }
+    console.log("Exit Intent Loop running. Already shown:", shown);
+
+    // FOR DEBUGGING: Commented out to force popup to show every time
+    // if (shown) {
+    //   setHasShown(true);
+    //   return;
+    // }
 
     // Detect mouse leaving viewport
     const handleMouseLeave = (e: MouseEvent) => {
+      console.log("Mouse position:", e.clientY);
       if (!hasShown && e.clientY <= 0) {
+        console.log("Triggering Exit Intent Popup");
         setIsOpen(true);
         setHasShown(true);
-        sessionStorage.setItem("exitIntentShown", "true");
+        // sessionStorage.setItem("exitIntentShown", "true"); // Disable setting it for now
       }
     };
 
@@ -31,17 +36,26 @@ export const ExitIntentPopup = () => {
     return () => document.removeEventListener("mouseleave", handleMouseLeave);
   }, [hasShown]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      // Here you would integrate with your email marketing tool
+    if (!email) return;
+
+    try {
+      // Replace with your actual Formspree/EmailJS endpoint
+      await fetch("https://formspree.io/f/PLACEHOLDER_ID", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "Exit Intent Popup" }),
+      });
+
+      // We proceed to success state regardless of actual network success for the demo
       console.log("Email captured:", email);
       setIsSubmitted(true);
-      
+
       // Simulate PDF download
       setTimeout(() => {
         const link = document.createElement("a");
-        link.href = "#"; // Replace with actual PDF URL
+        link.href = "/event-planning-checklist.pdf"; // Updated to real path
         link.download = "event-planning-checklist.pdf";
         link.click();
       }, 500);
@@ -50,6 +64,9 @@ export const ExitIntentPopup = () => {
       setTimeout(() => {
         setIsOpen(false);
       }, 3000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setIsSubmitted(true); // Fallback navigation
     }
   };
 

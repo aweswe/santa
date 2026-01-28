@@ -1,28 +1,67 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const navItems = [
   {
     label: "Services",
+    path: "/services",
     hasDropdown: true,
-    items: ["Event Management", "Exhibitions", "Digital Marketing", "Staffing Solutions"]
+    items: [
+      { label: "Event Management", path: "/services/event-management" },
+      { label: "Exhibitions", path: "/services/exhibitions" },
+      { label: "Digital Marketing", path: "/services/digital-marketing" },
+      { label: "Staffing Solutions", path: "/services/staffing-solutions" }
+    ]
   },
-  { label: "Case Studies", hasDropdown: false },
-  { label: "Partner Program", hasDropdown: true, items: ["Agency Partners", "Vendor Network"] },
-  { label: "Insights", hasDropdown: false },
-  { label: "About", hasDropdown: true, items: ["Our Story", "Team", "Careers"] },
+  { label: "Case Studies", path: "/case-studies", hasDropdown: false },
+  {
+    label: "Partner Program",
+    path: "/partner-program",
+    hasDropdown: true,
+    items: [
+      { label: "Agency Partners", path: "/partner/agency" },
+      { label: "Vendor Network", path: "/partner/vendor" }
+    ]
+  },
+  { label: "Insights", path: "/insights", hasDropdown: false },
+  {
+    label: "About",
+    path: "/about",
+    hasDropdown: true,
+    items: [
+      { label: "Our Story", path: "/about/story" },
+      { label: "Team", path: "/about/team" },
+      { label: "Careers", path: "/about/careers" }
+    ]
+  },
 ];
 
 interface HeaderProps {
   onContactClick?: () => void;
 }
 
-import logo from "@/assets/logo.png";
-
 export const Header = ({ onContactClick }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    if (onContactClick) {
+      onContactClick();
+    } else {
+      // Fallback if no handler provided (e.g., on internal pages)
+      // Ideally check if we are on home page, if not, nav to home then open?
+      // For now, just maybe navigate to home or scroll to contact?
+      // Since QuoteForm is global in Index, this props pattern is a bit restricted.
+      // But for now let's just allow it or maybe route to /#contact?
+      // Sticking to existing prop behavior, but if unavailable, maybe navigate to "/"
+      navigate("/");
+      // dispatch custom event if needed or rely on the prop being passed in layouts involving Index
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -38,14 +77,13 @@ export const Header = ({ onContactClick }: HeaderProps) => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            {/* Logo */}
-            <a href="/" className="flex items-center gap-2 overflow-hidden">
+            <Link to="/" className="flex items-center gap-2 overflow-hidden">
               <img
                 src={logo}
                 alt="Santa India"
                 className="h-16 w-auto object-contain mix-blend-multiply scale-125 pt-1"
               />
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
@@ -56,36 +94,40 @@ export const Header = ({ onContactClick }: HeaderProps) => {
                   onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.label)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <Button
-                    variant="navPill"
-                    size="pill"
-                    className="group"
-                  >
-                    {item.label}
-                    {item.hasDropdown && (
-                      <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
-                    )}
-                  </Button>
+                  <Link to={item.path}>
+                    <Button
+                      variant="navPill"
+                      size="pill"
+                      className="group"
+                    >
+                      {item.label}
+                      {item.hasDropdown && (
+                        <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
+                      )}
+                    </Button>
+                  </Link>
 
                   {/* Dropdown */}
                   {item.hasDropdown && activeDropdown === item.label && (
-                    <div className="absolute top-full left-0 mt-2 py-2 bg-card border border-border rounded-lg shadow-lg min-w-48 animate-fade-in">
-                      {item.items?.map((subItem) => (
-                        <a
-                          key={subItem}
-                          href="#"
-                          className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors"
-                        >
-                          {subItem}
-                        </a>
-                      ))}
-                      <div className="border-t border-border mt-2 pt-2 mx-2">
-                        <a
-                          href="#"
-                          className="block px-2 py-2 text-sm font-medium text-foreground hover:bg-secondary/50 rounded-md transition-colors"
-                        >
-                          View All Services
-                        </a>
+                    <div className="absolute top-full left-0 pt-4 min-w-48 animate-fade-in z-50">
+                      <div className="bg-card border border-border rounded-lg shadow-lg py-2">
+                        {item.items?.map((subItem) => (
+                          <Link
+                            key={subItem.label}
+                            to={subItem.path}
+                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                        <div className="border-t border-border mt-2 pt-2 mx-2">
+                          <Link
+                            to={item.path}
+                            className="block px-2 py-2 text-sm font-medium text-foreground hover:bg-secondary/50 rounded-md transition-colors"
+                          >
+                            View All Services
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -95,9 +137,11 @@ export const Header = ({ onContactClick }: HeaderProps) => {
 
             {/* CTA Button */}
             <div className="hidden lg:block">
-              <Button variant="hero" size="pill" onClick={onContactClick}>
-                Contact
-              </Button>
+              <Link to="/contact">
+                <Button variant="hero" size="pill">
+                  Contact
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -119,17 +163,20 @@ export const Header = ({ onContactClick }: HeaderProps) => {
           <div className="lg:hidden bg-background border-t border-border animate-fade-in">
             <div className="container mx-auto px-6 py-4 space-y-2">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href="#"
+                  to={item.path}
                   className="block py-3 text-foreground font-medium border-b border-border/50"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
-              <Button variant="hero" className="w-full mt-4" onClick={onContactClick}>
-                Contact Us
-              </Button>
+              <Link to="/contact">
+                <Button variant="hero" className="w-full mt-4" onClick={() => setIsMobileMenuOpen(false)}>
+                  Contact Us
+                </Button>
+              </Link>
             </div>
           </div>
         )}
