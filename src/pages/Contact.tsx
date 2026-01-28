@@ -11,62 +11,62 @@ const Contact = () => {
             <Header />
             <main className="lg:pt-24">
                 {/* Hero Section */}
-                <section className="relative py-24 px-6 overflow-hidden">
+                <section className="relative py-12 lg:py-24 px-6 overflow-hidden">
                     {/* Background Elements */}
                     <div className="absolute top-0 left-0 w-full h-full bg-hero-gradient opacity-50 -z-10" />
                     <div className="absolute top-20 right-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl -z-10" />
 
                     <div className="container mx-auto text-center max-w-4xl relative z-10">
-                        <span className="text-accent font-medium tracking-widest uppercase mb-4 block animate-fade-in">Get in Touch</span>
-                        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl mb-8 leading-tight">
+                        <span className="text-accent font-medium tracking-widest uppercase mb-4 block animate-fade-in text-sm md:text-base">Get in Touch</span>
+                        <h1 className="font-display text-3xl md:text-6xl lg:text-7xl mb-6 md:mb-8 leading-tight">
                             Let's Create Something <br /> <span className="text-gradient">Extraordinary</span>
                         </h1>
-                        <p className="text-muted-foreground text-xl max-w-2xl mx-auto mb-12">
+                        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8 md:mb-12">
                             Whether you have a groundbreaking idea or need a partner to execute your vision, we're ready to listen.
                         </p>
                     </div>
                 </section>
 
                 {/* Content Section */}
-                <section className="py-20 px-6">
+                <section className="py-10 lg:py-20 px-6">
                     <div className="container mx-auto">
-                        <div className="grid lg:grid-cols-2 gap-16">
+                        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
                             {/* Contact Info */}
                             <div className="space-y-12">
                                 <div>
-                                    <h2 className="font-display text-3xl mb-6">Contact Information</h2>
-                                    <p className="text-muted-foreground text-lg mb-8">
+                                    <h2 className="font-display text-2xl md:text-3xl mb-4 md:mb-6">Contact Information</h2>
+                                    <p className="text-muted-foreground text-base md:text-lg mb-6 md:mb-8">
                                         Prefer to talk? Reach out to us directly or schedule a visit to our HQ.
                                     </p>
 
-                                    <div className="space-y-6">
-                                        <a href="mailto:hello@santaindia.com" className="flex items-center gap-4 p-4 rounded-xl hover:bg-secondary/50 transition-colors group">
-                                            <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors">
-                                                <Mail className="w-5 h-5" />
+                                    <div className="space-y-4 md:space-y-6">
+                                        <a href="mailto:hello@santaindia.com" className="flex items-center gap-4 p-3 md:p-4 rounded-xl hover:bg-secondary/50 transition-colors group">
+                                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors shrink-0">
+                                                <Mail className="w-4 h-4 md:w-5 md:h-5" />
                                             </div>
                                             <div>
-                                                <p className="text-sm text-muted-foreground">Email Us</p>
-                                                <p className="font-medium text-lg">hello@santaindia.com</p>
+                                                <p className="text-xs text-muted-foreground">Email Us</p>
+                                                <p className="font-medium text-base md:text-lg">hello@santaindia.com</p>
                                             </div>
                                         </a>
 
-                                        <a href="tel:+919876543210" className="flex items-center gap-4 p-4 rounded-xl hover:bg-secondary/50 transition-colors group">
-                                            <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors">
-                                                <Phone className="w-5 h-5" />
+                                        <a href="tel:+919876543210" className="flex items-center gap-4 p-3 md:p-4 rounded-xl hover:bg-secondary/50 transition-colors group">
+                                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors shrink-0">
+                                                <Phone className="w-4 h-4 md:w-5 md:h-5" />
                                             </div>
                                             <div>
-                                                <p className="text-sm text-muted-foreground">Call Us</p>
-                                                <p className="font-medium text-lg">+91 98765 43210</p>
+                                                <p className="text-xs text-muted-foreground">Call Us</p>
+                                                <p className="font-medium text-base md:text-lg">+91 98765 43210</p>
                                             </div>
                                         </a>
 
-                                        <div className="flex items-center gap-4 p-4 rounded-xl hover:bg-secondary/50 transition-colors group">
-                                            <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors">
-                                                <MapPin className="w-5 h-5" />
+                                        <div className="flex items-center gap-4 p-3 md:p-4 rounded-xl hover:bg-secondary/50 transition-colors group">
+                                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors shrink-0">
+                                                <MapPin className="w-4 h-4 md:w-5 md:h-5" />
                                             </div>
                                             <div>
-                                                <p className="text-sm text-muted-foreground">Visit HQ</p>
-                                                <p className="font-medium text-lg">New Delhi, India</p>
+                                                <p className="text-xs text-muted-foreground">Visit HQ</p>
+                                                <p className="font-medium text-base md:text-lg">New Delhi, India</p>
                                             </div>
                                         </div>
                                     </div>
@@ -88,11 +88,11 @@ const Contact = () => {
                             </div>
 
                             {/* Contact Form */}
-                            <div className="bg-card border border-border rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                            <div className="bg-card border border-border rounded-3xl p-6 md:p-12 shadow-2xl relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2" />
 
-                                <h2 className="font-display text-3xl mb-2">Send us a Message</h2>
-                                <p className="text-muted-foreground mb-8">Tell us about your event and we'll get back to you within 24 hours.</p>
+                                <h2 className="font-display text-2xl md:text-3xl mb-2">Send us a Message</h2>
+                                <p className="text-muted-foreground text-sm md:text-base mb-6 md:mb-8">Tell us about your event and we'll get back to you within 24 hours.</p>
 
                                 <form className="space-y-6">
                                     <div className="grid md:grid-cols-2 gap-6">

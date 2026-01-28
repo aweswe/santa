@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navItems = [
@@ -48,11 +48,15 @@ export const Header = ({ onContactClick }: HeaderProps) => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
+  const navigate = useNavigate();
+
   const handleContactClick = () => {
     if (onContactClick) {
       onContactClick();
-      setIsMobileMenuOpen(false);
+    } else {
+      navigate("/contact");
     }
+    setIsMobileMenuOpen(false);
   };
 
   // Lock scroll
@@ -186,6 +190,14 @@ export const Header = ({ onContactClick }: HeaderProps) => {
                   )}
                 </div>
               ))}
+
+              <Link
+                to="/contact"
+                className="block py-4 text-xl font-semibold border-b border-border/50"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
 
               <div className="pt-4 pb-12">
                 <Button
