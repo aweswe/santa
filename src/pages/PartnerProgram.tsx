@@ -9,15 +9,15 @@ const PartnerProgram = () => {
             <main className="pt-24">
                 <section className="bg-primary/5 py-20 px-6">
                     <div className="container mx-auto text-center max-w-4xl">
-                        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6">
+                        <h1 className="font-display text-3xl md:text-5xl lg:text-6xl mb-6">
                             Partner with <span className="text-gradient">Santa India</span>
                         </h1>
                         <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
                             Join our ecosystem of agencies and vendors to create world-class experiences together.
                         </p>
-                        <div className="flex justify-center gap-4">
-                            <Button variant="hero" size="lg">For Agencies</Button>
-                            <Button variant="outline" size="lg">For Vendors</Button>
+                        <div className="flex flex-col sm:flex-row justify-center gap-4">
+                            <Button variant="hero" size="lg" className="w-full sm:w-auto">For Agencies</Button>
+                            <Button variant="outline" size="lg" className="w-full sm:w-auto">For Vendors</Button>
                         </div>
                     </div>
                 </section>

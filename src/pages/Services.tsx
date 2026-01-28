@@ -9,7 +9,7 @@ const Services = () => {
             <main className="pt-24">
                 <section className="bg-primary/5 py-20 px-6">
                     <div className="container mx-auto text-center max-w-4xl">
-                        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6">
+                        <h1 className="font-display text-3xl md:text-5xl lg:text-6xl mb-6">
                             Our <span className="text-gradient">Services</span>
                         </h1>
                         <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
@@ -30,7 +30,7 @@ const Services = () => {
                             <p className="text-muted-foreground">From the first coffee to the final applause, we ensure a seamless journey.</p>
                         </div>
 
-                        <div className="grid md:grid-cols-4 gap-8 relative">
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
                             {/* Connecting Line (Desktop) */}
                             <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-border/50 -z-10" />
 

@@ -18,7 +18,7 @@ const Contact = () => {
 
                     <div className="container mx-auto text-center max-w-4xl relative z-10">
                         <span className="text-accent font-medium tracking-widest uppercase mb-4 block animate-fade-in">Get in Touch</span>
-                        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl mb-8 leading-tight">
+                        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl mb-8 leading-tight">
                             Let's Create Something <br /> <span className="text-gradient">Extraordinary</span>
                         </h1>
                         <p className="text-muted-foreground text-xl max-w-2xl mx-auto mb-12">

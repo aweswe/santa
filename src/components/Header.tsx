@@ -161,22 +161,49 @@ export const Header = ({ onContactClick }: HeaderProps) => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-background border-t border-border animate-fade-in">
-            <div className="container mx-auto px-6 py-4 space-y-2">
+            <div className="max-h-[80vh] overflow-y-auto container mx-auto px-6 py-4 space-y-1">
               {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.path}
-                  className="block py-3 text-foreground font-medium border-b border-border/50"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
+                <div key={item.label} className="border-b border-border/50 last:border-0">
+                  {item.hasDropdown ? (
+                    <div className="py-2">
+                      <Link
+                        to={item.path}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="font-medium text-lg block mb-2"
+                      >
+                        {item.label}
+                      </Link>
+                      <div className="pl-4 border-l border-border space-y-2">
+                        {item.items?.map(sub => (
+                          <Link
+                            key={sub.label}
+                            to={sub.path}
+                            className="block py-1 text-muted-foreground hover:text-foreground transition-colors"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className="block py-3 text-foreground font-medium text-lg"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               ))}
-              <Link to="/contact">
-                <Button variant="hero" className="w-full mt-4" onClick={() => setIsMobileMenuOpen(false)}>
-                  Contact Us
-                </Button>
-              </Link>
+              <div className="pt-4">
+                <Link to="/contact">
+                  <Button variant="hero" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                    Contact Us
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         )}
